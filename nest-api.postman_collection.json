@@ -1,0 +1,125 @@
+{
+	"info": {
+		"_postman_id": "9103e191-aaf8-46a3-af66-784dd46e2ef7",
+		"name": "nest-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23660381"
+	},
+	"item": [
+		{
+			"name": "satusehat-nest-getToken",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:4000/auth/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"auth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add-satusehat-nest",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "Bearer SaOcxGRCKOAZJhhPgxofrbbmAKZr",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"resourceType\": \"Location\",\r\n  \"identifier\": [\r\n    {\r\n      \"system\": \"http://sys-ids.kemkes.go.id/location/100026305\",\r\n      \"value\": \"INT\"\r\n    }\r\n  ],\r\n  \"status\": \"active\",\r\n  \"name\": \"Poli Anak\",\r\n  \"description\": \"Poli Anak\",\r\n  \"mode\": \"instance\",\r\n  \"telecom\": [\r\n    {\r\n      \"system\": \"phone\",\r\n      \"value\": \"+621500567\",\r\n      \"use\": \"work\"\r\n    },\r\n    {\r\n      \"system\": \"email\",\r\n      \"value\": \"pkm-satusehat@dto.kemkes.go.id\",\r\n      \"use\": \"work\"\r\n    },\r\n    {\r\n      \"system\": \"url\",\r\n      \"value\": \"dto.kemkes.go.id\",\r\n      \"use\": \"work\"\r\n    }\r\n  ],\r\n  \"physicalType\": {\r\n    \"coding\": [\r\n      {\r\n        \"system\": \"http://terminology.hl7.org/CodeSystem/location-physical-type\",\r\n        \"code\": \"ro\",\r\n        \"display\": \"Room\"\r\n      }\r\n    ]\r\n  },\r\n  \"position\": {\r\n    \"longitude\": -6.23115426275766,\r\n    \"latitude\": 106.83239885393944,\r\n    \"altitude\": 0\r\n  },\r\n  \"managingOrganization\": {\r\n    \"reference\": \"Organization/100026305\"\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/poli/send-data",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"poli",
+						"send-data"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add-perawat",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nama\": \"Siti Aminah\",\r\n  \"poli\": \"Poli Anak\",\r\n  \"no_hp\": \"081234567890\",\r\n  \"email\": \"siti.aminah@example.com\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/perawat/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"perawat",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getperawatdanpoli",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/perawat/with-poli",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"perawat",
+						"with-poli"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
